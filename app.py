@@ -8,25 +8,6 @@ app = Flask(__name__)
 
 logging.basicConfig(level=logging.DEBUG)
 
-securityConfig = {
-    '.*': ['test']
-}
-
-oauth2 = OAuth2(
-    certificateUrl='https://dev-729044.oktapreview.com/oauth2/default/v1/keys',  audience='python')
-
-
-@app.before_request
-def before_app_request():
-    """filter each request for a token based on security configuration
-    """
-    try:
-        oauth2.authorize(request, securityConfig)
-    except Exception as err:
-        logging.error(err)
-        abort(403)
-
-
 @app.route('/health')
 def health():
     """default health reponse to show app is up
