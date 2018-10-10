@@ -46,8 +46,6 @@ flask run
 
 * **Mark Sikora** - *Initial work* - [LinkedIn](https://www.linkedin.com/in/mark-m-sikora/)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [MIT](https://opensource.org/licenses/MIT) file for details
