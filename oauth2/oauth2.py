@@ -19,6 +19,7 @@ class OAuth2:
         path = request.path
         if path.endswith('/health'):
             return
+
         # group associated with the security configuration
         groups = None
         for key, value in securityConfiguration.items():
@@ -31,6 +32,8 @@ class OAuth2:
         if groups is None:
             raise Exception(
                 'No matchers in secuirty configuration for path: ' + path)
+
+        # allow all group to bypass need for security         
         if any('ALLOW_ALL' in s for s in groups):
             logging.debug('ALLOW_ALL matched: ' + path)
             return
@@ -40,6 +43,7 @@ class OAuth2:
         except Exception:
             raise Exception(
                 'Unable to read JWT Bearer token from Authorization header')
+
         # certificate used to validate the token
         if self.certificate is None:
             self.certificate = json.loads(urllib.request.urlopen(
@@ -51,6 +55,7 @@ class OAuth2:
         scopes = authorizations['scp']
         logging.debug('Groups for authorization: ' + str(groups))
         logging.debug('Scopes for authorization: ' + str(scopes))
+        
         # checks to make sure a group is in the token scope
         if len(set(groups).intersection(set(scopes))) < 1:
             raise Exception('No matching scopres on JWT Bearer Token')
