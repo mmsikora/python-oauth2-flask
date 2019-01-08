@@ -1,4 +1,4 @@
-# Otka Python3 OAuth2 Flask Application
+# Okta Python3 OAuth2 Flask Application
 
 This project is a light weight flask web application used to demonstrate the use of OAuth2 Tokens
 from an Okta provider.
