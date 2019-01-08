@@ -40,7 +40,7 @@ flask run
 
 **[Flask](http://flask.pocoo.org/)** - information on Flask, microframework for Python
 
-**[Otka](https://developer.okta.com/docs/api/resources/oidc#keys)** - information on Okta's API
+**[Okta](https://developer.okta.com/docs/api/resources/oidc#keys)** - information on Okta's API
 
 ## Authors
 
